@@ -32,7 +32,7 @@ For each test, first print `YES` or `NO`. If the answer is `YES`, also print a v
 
 # Constraints
 
-- $1 \le t \le 100$
+- $1 \le t \le 200$
 - $1 \le n \le 100$
 - $1 \le s_i \le n$
 

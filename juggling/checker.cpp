@@ -6,7 +6,7 @@
 
 int main()
 {
-    int t = read_int(1,100);
+    int t = read_int(1,200);
 
     bool s1 = true;
     bool s2 = true;

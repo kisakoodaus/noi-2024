@@ -1,1 +1,8 @@
-1 2
+1 small 5
+2 random 10
+3 random 20
+4 distinct 100
+5 max5 100
+6 random 100
+7 minimum 100
+8 maximum 100
