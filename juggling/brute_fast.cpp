@@ -37,13 +37,15 @@ int main() {
         s.resize(n);
         r.resize(n);
         g.resize(n);
+        int sum = 0;
         for (int i = 0; i < n; i++) {
             cin >> s[i];
+            sum += s[i];
             g[i] = 0;
         }
 
         found = false;
-        search(0);
+        if (sum%n == 0) search(0);
 
         if (!found) cout << "NO\n";
     }
