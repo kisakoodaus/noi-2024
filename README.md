@@ -1,6 +1,6 @@
-# Datatähti 2024 loppu
+# NOI 2024
 
-<https://cses.fi/490/list/>
+<https://cses.fi/495/list/>
 
 ## Workflow for creating a new task
 1. Copy `template/` as `new-task/`.
