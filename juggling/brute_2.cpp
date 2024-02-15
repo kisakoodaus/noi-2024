@@ -15,9 +15,12 @@ void search(int k) {
         cout << "\n";
         return;
     }
+    int v = 0;
     for (int i = 0; i < n-k; i++) {
+        if (v == s[i]) continue;
         int u = (k+s[i])%n;
         if (g[u]) continue;
+        v = s[i];
         r[k] = s[i];
         g[u] = 1;
         swap(s[i], s[n-k-1]);

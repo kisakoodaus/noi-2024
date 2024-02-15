@@ -1,4 +1,4 @@
-binaries=generator checker solver brute_slow brute_fast random
+binaries=generator checker solver brute_1 brute_2 random
 
 # if using custom grader
 # binaries+=grader
