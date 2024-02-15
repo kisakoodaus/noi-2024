@@ -59,3 +59,23 @@ NO
 YES
 2 4 1 1 2
 ```
+
+# Subtask 1 ([score=1] points)
+
+- $1 \le n \le 10$
+
+# Subtask 2 ([score=2] points)
+
+- $1 \le n \le 20$
+
+# Subtask 3 ([score=3] points)
+
+- $s_i \neq s_j$ when $i \neq j$
+
+# Subtask 4 ([score=4] points)
+
+- $1 \le s_i \le 5$ for $i=1,2,\dots,n$
+
+# Subtask 5 ([score=5] points)
+
+- No restrictions.
