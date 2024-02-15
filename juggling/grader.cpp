@@ -59,6 +59,8 @@ int main(int argc, char **argv)
 
         vector<int> p(n);
         for (int i = 0; i < n; i++) {
+            int x;
+            correct >> x;
             user >> p[i];
         }
 
@@ -71,7 +73,7 @@ int main(int argc, char **argv)
 
         vector<int> c(n);
         for (int i = 0; i < n; i++) {
-            int u = (i+s[i])%n;
+            int u = (i+p[i])%n;
             if (c[u]) fail();
             c[u] = 1;
         }
