@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <map>
 
 using namespace std;
 
@@ -41,8 +42,40 @@ int main(int argc, char **argv)
     user.open(x2);
     input.open(x3);
 
-    // Write grader here
-    // Remember to add this to the Makefile, otherwise the default grader will be used
+    int t;
+    input >> t;
+
+    while (t--) {
+        int n;
+        input >> n;
+        vector<int> s(n);
+        for (int i = 0; i < n; i++) input >> s[i];
+
+        string v1, v2;
+        correct >> v1;
+        user >> v2;
+        if (v1 != v2) fail();
+        if (v1 == "NO") continue;
+
+        vector<int> p(n);
+        for (int i = 0; i < n; i++) {
+            user >> p[i];
+        }
+
+        map<int,int> m1, m2;
+        for (int i = 0; i < n; i++) {
+            m1[s[i]]++;
+            m2[p[i]]++;
+        }
+        if (m1 != m2) fail();
+
+        vector<int> c(n);
+        for (int i = 0; i < n; i++) {
+            int u = (i+s[i])%n;
+            if (c[u]) fail();
+            c[u] = 1;
+        }
+    }
 
     accept();
 }
