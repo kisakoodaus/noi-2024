@@ -26,7 +26,7 @@
    - Use the `TESTS` parameter to generate or run only specific tests, e.g.
      `TESTS="1 2 5"`.
 9. Once you are done with everything, you can package all tests into a zip file
-   by running `make package-tests`.
+   by running `make package`.
 
 ## Example
 ```
@@ -148,5 +148,5 @@ make run-tests SOLUTION=./failing-solver.exe TESTS="1 3"
     Grader returned 0
     make: *** [../.common/Makefile.include:38: run-tests] Error 3
 # Once everything works as expected, package tests and upload them to cses.fi
-make package-tests
+make package
 ```

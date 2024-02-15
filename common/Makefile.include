@@ -10,9 +10,11 @@ TEST_GEN_FILES:=$(foreach i, $(TESTS), tests/$(i).gen)
 TEST_IN_FILES:=$(foreach i, $(TESTS), tests/$(i).in)
 TEST_OUT_FILES:=$(foreach i, $(TESTS), tests/$(i).out)
 export SOLUTION?=./solver.exe
-export DEFAULT_GRADER_NEEDED:=
+CUSTOM_GRADER_SOURCE:=
+DEFAULT_GRADER_NEEDED:=
 ifneq ($(filter grader, $(binaries)), )
 	export GRADER?=./grader.exe
+	CUSTOM_GRADER_SOURCE:=grader.cpp
 else ifndef GRADER
 	export GRADER:=$(COMMON_PATH)/default-grader/grader.exe
 	DEFAULT_GRADER_NEEDED:=$(GRADER)
@@ -51,12 +53,15 @@ run-tests: tests all $(DEFAULT_GRADER_NEEDED)
 	@echo -- Running tests on $(SOLUTION) graded by $(GRADER)
 	$(COMMON_PATH)/run-tests.sh $(TESTS)
 
-.PHONY: package-tests
-package-tests: tests
-	@echo -- Packaging $(words $(TESTS)) tests
-	rm -f tests.zip
-	zip tests.zip $(TEST_IN_FILES) $(TEST_OUT_FILES)
+.PHONY: package package-tests
+package: tests
+	@echo -- Packaging $(words $(TESTS)) tests and auxiliary files
+	rm -f package.zip
+	zip package.zip checker.cpp statement*.md $(CUSTOM_GRADER_SOURCE) \
+		$(TEST_IN_FILES) $(TEST_OUT_FILES) $(wildcard files/*)
 
+# alias
+package-tests: package
 
 .PHONY: clean-tests
 clean-tests:
