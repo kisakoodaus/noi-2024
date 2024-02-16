@@ -12,8 +12,8 @@ picked up.
 If there is a gold coin on the square Uolevi is currently in,
 he can pick it up.
 
-Uolevi wants to start and end a trip on the lake at the edges of the grid.
-What is the largest number of gold coins he can gather during the trip?
+Uolevi wants to start and end a trip on squares that are at the edges of the
+lake. What is the largest number of gold coins he can gather during the trip?
 
 # Input
 
