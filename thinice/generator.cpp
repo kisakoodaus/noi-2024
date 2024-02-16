@@ -7,7 +7,7 @@ using namespace std;
 
 [[noreturn]] void usage()
 {
-    cerr << "Usage: ./generator seed number" << endl;
+    cerr << "Usage: ./generator seed n m dmax type" << endl;
     exit(1);
 }
 
@@ -42,7 +42,7 @@ void shuffle(T &arr)
 int main(int argc, char **argv)
 {
     // Check argument count
-    if (argc != 3)
+    if (argc != 6)
         usage();
 
     // Parse arguments into numbers
@@ -50,9 +50,28 @@ int main(int argc, char **argv)
     r_dev.seed(seed);
     r_dev64.seed(seed);
     int n = atoi(argv[2]);
+    int m = atoi(argv[3]);
+    int maxd = atoi(argv[4]);
+    string tp = argv[5];
 
-    // Create the test case
+    vector<vector<int>> d(n, vector<int>(m));
 
-    // Output the test case to the standard output
-    cout << n << '\n';
+    if (tp == "rand") {
+      for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+          d[i][j] = rnd(1, maxd);
+        }
+      }
+    } else {
+      throw;
+    }
+
+    cout << n << " " << m << "\n";
+    for (int i = 0; i < n; ++i) {
+      for (int j = 0; j < m; ++j) {
+        cout << d[i][j];
+        if (j != m-1) cout << " ";
+      }
+      cout << "\n";
+    }
 }

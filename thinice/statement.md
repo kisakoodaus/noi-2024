@@ -49,13 +49,13 @@ Output:
 
 # Subtask 2 ([score=2] points)
 
-- $1 \le nm \le 10^6$
-- $1 \le d \le 5$
+- $n = 1$, $1 \le m \le 10^6$
+- $1 \le d \le 10^6$
 
 # Subtask 3 ([score=3] points)
 
-- $n = 1$, $1 \le m \le 10^6$
-- $1 \le d \le 10^6$
+- $1 \le nm \le 10^6$
+- $1 \le d \le 5$
 
 # Subtask 4 ([score=4] points)
 
