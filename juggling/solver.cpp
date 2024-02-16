@@ -13,18 +13,13 @@ bool check(vector<int> s) {
     return true;
 }
 
-pair<int,int> find(vector<deque<int>> &d, int n, int f) {
+pair<int,int> find(vector<deque<int>> &d) {
+    int n = d.size();
     for (int i = 0; i < n; i++) {
         if (d[i].size() > 1) {
-            int b;
-            if (f == d[i].back()) {
-                b = d[i].front();
-                d[i].pop_front();
-            } else {
-                b = d[i].back();
-                d[i].pop_back();
-            }
-            return {b, (i-b+n)%n};
+            int f = d[i].front();
+            d[i].pop_front();
+            return {f, (i-f+n)%n};
         }
     }
     return {0,0};
@@ -39,12 +34,10 @@ vector<int> create(vector<int> s) {
             d[k].push_back(s[i]);
         }
         int a, x;
-        tie(a,x) = find(d,n,-1);
-        int f = -1;
+        tie(a,x) = find(d);
         while (true) {
             int b, y;
-            tie(b,y) = find(d,n,f);
-            f = b;
+            tie(b,y) = find(d);
             s[x] = b;
             d[(x+b)%n].push_back(b);
             if (d[(x+b)%n].size() == 1) {
