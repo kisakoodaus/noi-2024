@@ -24,7 +24,7 @@ For each test, first print `YES` if you can construct a move sequence and `NO` o
 
 - $1 \le t \le 200$
 - $1 \le n \le 100$
-- $1 \le s_i \le n$
+- Each number is between $1$ and $n$
 
 # Example
 
@@ -60,11 +60,11 @@ YES
 
 # Subtask 3 ([score=3] points)
 
-- $s_i \neq s_j$ when $i \neq j$
+- Each number is distinct.
 
 # Subtask 4 ([score=4] points)
 
-- $1 \le s_i \le 5$ for $i=1,2,\dots,n$
+- Each number is between $1$ and $5$.
 
 # Subtask 5 ([score=5] points)
 
