@@ -39,6 +39,7 @@ int main() {
     foradj(i, [&](int j) {
         if (!z[j]) return;
         int x = getp(j);
+        if (x == i) return;
         p[x] = i;
         v[i].push_back(x);
     });
