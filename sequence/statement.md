@@ -8,13 +8,13 @@ For example, the sequence $[2,4,1,1,2]$ is a move sequence:
 * $(3+1) \bmod 5 = 4$
 * $(4+2) \bmod 5 = 1$
 
-Given $n$ integers, your task is to construct a move sequence using them or state that this is not possible.
+Given an integer sequence $x_0,x_1,\dots,x_{n-1}$, construct a move sequence that is a permutation of the given sequence or state that this is not possible.
 
 # Input
 
 The first line has an integer $t$: the number of tests.
 
-After this, each test consists of two lines. The first line has an integer $n$ and the second line has $n$ integers.
+After this, each test consists of two lines. The first line has an integer $n$ and the second line has integers $x_0,x_1,\dots,x_{n-1}$.
 
 # Output
 
@@ -24,7 +24,7 @@ For each test, first print `YES` if you can construct a move sequence and `NO` o
 
 - $1 \le t \le 200$
 - $1 \le n \le 100$
-- Each number is between $1$ and $n$
+- $1 \le x_i \le n$ for $i=0,1,\dots,n-1$
 
 # Example
 
@@ -60,11 +60,11 @@ YES
 
 # Subtask 3 ([score=3] points)
 
-- Each number is distinct.
+- $x_i \neq x_j$ if $i \neq j$ (i.e. each element is distinct)
 
 # Subtask 4 ([score=4] points)
 
-- Each number is between $1$ and $5$.
+- $1 \le x_i \le 5$ for $i=0,1,\dots,n-1$
 
 # Subtask 5 ([score=5] points)
 
