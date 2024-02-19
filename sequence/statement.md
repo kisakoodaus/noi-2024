@@ -22,7 +22,7 @@ For each test, first print `YES` if you can construct a move sequence and `NO` o
 
 # Constraints
 
-- $1 \le t \le 200$
+- $1 \le t \le 1000$
 - $1 \le n \le 100$
 - $1 \le x_i \le n$ for $i=0,1,\dots,n-1$
 
@@ -52,11 +52,11 @@ YES
 
 # Subtask 1 ([score=1] points)
 
-- $1 \le n \le 10$
+- $1 \le n \le 8$
 
 # Subtask 2 ([score=2] points)
 
-- $1 \le n \le 20$
+- $1 \le n \le 16$
 
 # Subtask 3 ([score=3] points)
 

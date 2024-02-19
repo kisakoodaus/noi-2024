@@ -6,7 +6,7 @@
 
 int main()
 {
-    int t = read_int(1,200);
+    int t = read_int(1,1000);
 
     bool s1 = true;
     bool s2 = true;
@@ -17,8 +17,8 @@ int main()
         int n = read_int(1,100);
         auto v = read_ints(n,1,n);
 
-        if (n > 10) s1 = false;
-        if (n > 20) s2 = false;
+        if (n > 8) s1 = false;
+        if (n > 16) s2 = false;
 
         set<int> z;
         for (auto x : v) {

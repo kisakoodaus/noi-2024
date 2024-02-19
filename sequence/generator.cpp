@@ -69,6 +69,8 @@ int main(int argc, char **argv)
     string what = argv[2];
     int n = atoi(argv[3]);
 
+    int t_max = 1000;
+
     if (what == "small") {
         for (int i = 1; i <= n; i++) {
             create(i, {});
@@ -84,9 +86,9 @@ int main(int argc, char **argv)
             }
         }
     }
-    if (what == "random") {
-        cout << 200 << "\n";
-        for (int k = 1; k <= 200; k++) {
+    if (what == "random-possible") {
+        cout << t_max << "\n";
+        for (int k = 1; k <= t_max; k++) {
             cout << n << "\n";
             vector<int> s;
             int sum = 0;
@@ -94,6 +96,21 @@ int main(int argc, char **argv)
                 int x = rnd(1, n);
                 if (i == n) x = n-sum%n;
                 sum += x;
+                s.push_back(x);
+            }
+            for (int i = 0; i < n; i++) {
+                cout << s[i];
+                cout << " \n"[i == n-1];
+            }
+        }
+    }
+    if (what == "random-any") {
+        cout << t_max << "\n";
+        for (int k = 1; k <= t_max; k++) {
+            cout << n << "\n";
+            vector<int> s;
+            for (int i = 1; i <= n; i++) {
+                int x = rnd(1, n);
                 s.push_back(x);
             }
             for (int i = 0; i < n; i++) {
@@ -118,8 +135,8 @@ int main(int argc, char **argv)
         }
     }
     if (what == "max5") {
-        cout << 200 << "\n";
-        for (int k = 1; k <= 200; k++) {
+        cout << t_max << "\n";
+        for (int k = 1; k <= t_max; k++) {
             cout << n << "\n";
             vector<int> s;
             for (int i = 1; i <= n; i++) {
