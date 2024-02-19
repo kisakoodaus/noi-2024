@@ -23,7 +23,7 @@ endif
 # Never delete these even if they're intermediary files
 .SECONDARY: $(TEST_GEN_FILES) $(TEST_IN_FILES) $(TEST_OUT_FILES)
 
-# These are usually generated automatically, but not always
+# These are usually generated automatically, but not in all scenarios
 $(TEST_GEN_FILES) &: tests.txt
 	$(COMMON_PATH)/gen-tests.sh tests.txt > /dev/null
 
@@ -66,3 +66,11 @@ package-tests: package
 .PHONY: clean-tests
 clean-tests:
 	rm tests/*
+
+FMT?=%
+
+.PHONY: brutetest
+brutetest: all $(DEFAULT_GRADER_NEEDED)
+	@echo -- Brute testing $(SOLUTION) against ./solver.exe graded by $(GRADER)
+	@echo -- Using FMT=\''$(FMT)'\' to generate tests, % replaced by test no.
+	$(COMMON_PATH)/brutetest.sh '$(FMT)'

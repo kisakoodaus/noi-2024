@@ -20,8 +20,8 @@ for testnum in $@; do
 
     #echo $GRADER "$testout" "$user_output" "$testin"
     grader_output=$($GRADER "$testout" "$user_output" "$testin")
-    { read -r grading_result; read -r grading_score; } <<< "$grader_output" || true
     code=$?
+    { read -r grading_result; read -r grading_score; } <<< "$grader_output" || true
     if [ $code -ne 0 ]; then
         echo Grader crashed with return code $code
         [[ -z "$NONSTOP" ]] && exit 2

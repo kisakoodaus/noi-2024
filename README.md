@@ -24,7 +24,10 @@
    solution, you can run `make run-tests`. If you have another solution binary,
    you can run tests against it using `make run-tests SOLUTION=./solver1.exe`.
    - Use the `TESTS` parameter to generate or run only specific tests, e.g.
-     `TESTS="1 2 5"`.
+     `TESTS='1 2 5'`.
+   - Brute test solutions against the model solver with e.g. `make brutetest
+     SOLUTION=./solver1.exe FMT='% 5'`. The `FMT` parameter is given to the
+     generator after replacing `%` with a counter to generate different tests.
 9. Once you are done with everything, you can package all tests into a zip file
    by running `make package`.
 
