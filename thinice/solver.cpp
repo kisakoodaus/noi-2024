@@ -54,7 +54,7 @@ int main() {
   int res = 0;
   for (int i : ord) {
     if (atedge(i)) {
-      res = max(res, min(dp[i] + 1, d[i]));
+      res = max(res, min(dp[i] + cs[i], d[i]));
     }
     for (int j : v[i]) {
       dp[j] = min(dp[i] + cs[i] - cs[j], d[i]);
