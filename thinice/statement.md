@@ -49,20 +49,25 @@ Output:
 
 # Subtask 2 ([score=2] points)
 
-- $n = 1$, $1 \le m \le 10^6$
-- $1 \le d \le 10^6$
+- $1 \le nm \le 2 \cdot 10^5$
+- $1 \le d \le 5$
 
 # Subtask 3 ([score=3] points)
 
-- $1 \le nm \le 10^6$
-- $1 \le d \le 5$
+- $n = 1$, $1 \le m \le 100$
+- $1 \le d \le 100$
 
 # Subtask 4 ([score=4] points)
 
-- $1 \le nm \le 1024$
-- $1 \le d \le 1024$
+- $1 \le nm \le 1000$
+- $1 \le d \le 1000$
 
 # Subtask 5 ([score=5] points)
 
-- $1 \le nm \le 10^6$
-- $1 \le d \le 10^6$
+- $n = 1$, $1 \le m \le 2 \cdot 10^5$
+- $1 \le d \le 2 \cdot 10^5$
+
+# Subtask 6 ([score=6] points)
+
+- $1 \le nm \le 2 \cdot 10^5$
+- $1 \le d \le 2 \cdot 10^5$
