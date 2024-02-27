@@ -37,13 +37,14 @@ Output:
 
 # Subtask 1 ([score=1] points)
 
-- $1 \le n \le 100$
-- $1 \le m \le 200$
+- $1 \le n \le 1000$
+- $1 \le m \le 2000$
 
 # Subtask 2 ([score=2] points)
 
-- $1 \le n \le 2000$
-- $1 \le m \le 5000$
+- $1 \le n \le 10^5$
+- $m=n-1$
+- Each road is between cities $i$ and $i+1$ for $i=1,2,\dots,n-1$
 
 # Subtask 3 ([score=3] points)
 
