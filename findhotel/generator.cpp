@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 
         vector<int> v;
         for (int i = 1; i <= n; i++) v.push_back(i);
-        random_shuffle(v.begin(), v.end());
+        shuffle(v);
         for (int i = 1; i <= k; i++) {
             cout << v[i-1];
             cout << " \n"[i == k];
