@@ -19,7 +19,7 @@ Print $n$ integers: for each city, the minimum distance to another city with a h
 Input:
 
 ```
-8 6 4
+9 6 4
 2 4 5 7
 1 2
 1 3
