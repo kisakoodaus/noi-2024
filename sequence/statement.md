@@ -18,7 +18,7 @@ For each test, first print `YES` if there is a valid initial order and `NO` othe
 
 - $1 \le t \le 1000$
 - $1 \le n \le 100$
-- $1 \le x_i \le n$ for $i=1,2,\dots,n$
+- $1 \le s_i \le n$ for $i=1,2,\dots,n$
 
 # Example
 
@@ -54,11 +54,11 @@ YES
 
 # Subtask 3 ([score=3] points)
 
-- $x_i \neq x_j$ if $i \neq j$ (i.e. each value is distinct)
+- $s_i \neq s_j$ if $i \neq j$ (i.e. each value is distinct)
 
 # Subtask 4 ([score=4] points)
 
-- $1 \le x_i \le 5$ for $i=1,2,\dots,n$
+- $1 \le s_i \le 5$ for $i=1,2,\dots,n$
 
 # Subtask 5 ([score=5] points)
 
