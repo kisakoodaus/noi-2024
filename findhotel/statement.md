@@ -37,13 +37,13 @@ Output:
 
 # Subtask 1 ([score=1] points)
 
-- $1 \le n \le 500$
-- $1 \le m \le 1000$
+- $1 \le n \le 100$
+- $1 \le m \le 200$
 
 # Subtask 2 ([score=2] points)
 
-- $1 \le n \le 5000$
-- $1 \le m \le 10000$
+- $1 \le n \le 2000$
+- $1 \le m \le 5000$
 
 # Subtask 3 ([score=3] points)
 
