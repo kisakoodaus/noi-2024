@@ -1,4 +1,4 @@
-binaries=generator checker solver
+binaries=generator checker solver brute_n2
 
 # if using custom grader
 # binaries+=grader
