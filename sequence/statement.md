@@ -1,30 +1,24 @@
-An integer sequence $s_0,s_1,\dots,s_{n-1}$ is called a _move sequence_ if each value $(i+s_i) \bmod n$ is distinct for $i=0,1,\dots,n-1$.
+Consider a game with $n$ players, numbered $1,2,\dots,n$. Each player $i$ has an integer $s_i$ between $1$ and $n$.
 
-For example, the sequence $[2,4,1,1,2]$ is a move sequence:
- 
-* $(0+2) \bmod 5 = 2$
-* $(1+4) \bmod 5 = 0$
-* $(2+1) \bmod 5 = 3$
-* $(3+1) \bmod 5 = 4$
-* $(4+2) \bmod 5 = 1$
+There are $n$ chairs arranged in a circle. Initially, each player sits on a chair. Then, a bell rings and each player $i$ moves $s_i$ steps clockwise.
 
-Given an integer sequence $x_0,x_1,\dots,x_{n-1}$, construct a move sequence that is a permutation of the given sequence or state that this is not possible.
+Your task is to find an initial order for the players such that each chair has exactly one player after they move.
 
 # Input
 
 The first line has an integer $t$: the number of tests.
 
-After this, each test consists of two lines. The first line has an integer $n$ and the second line has integers $x_0,x_1,\dots,x_{n-1}$.
+After this, each test consists of two lines. The first line has an integer $n$ and the second line has integers $s_1,s_2,\dots,s_n$.
 
 # Output
 
-For each test, first print `YES` if you can construct a move sequence and `NO` otherwise. If the answer is `YES`, also print a move sequence. If there are several solutions, you can print any of them.
+For each test, first print `YES` if there is a valid initial order and `NO` otherwise. If the answer is `YES`, also print a possible order. If there are several orders, you can print any of them.
 
 # Constraints
 
 - $1 \le t \le 1000$
 - $1 \le n \le 100$
-- $1 \le x_i \le n$ for $i=0,1,\dots,n-1$
+- $1 \le x_i \le n$ for $i=1,2,\dots,n$
 
 # Example
 
@@ -60,11 +54,11 @@ YES
 
 # Subtask 3 ([score=3] points)
 
-- $x_i \neq x_j$ if $i \neq j$ (i.e. each element is distinct)
+- $x_i \neq x_j$ if $i \neq j$ (i.e. each value is distinct)
 
 # Subtask 4 ([score=4] points)
 
-- $1 \le x_i \le 5$ for $i=0,1,\dots,n-1$
+- $1 \le x_i \le 5$ for $i=1,2,\dots,n$
 
 # Subtask 5 ([score=5] points)
 
