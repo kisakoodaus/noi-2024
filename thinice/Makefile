@@ -1,4 +1,4 @@
-binaries=generator checker solver brute1
+binaries=generator checker solver sols/brute1 sols/wa-max
 
 # if using custom grader
 # binaries+=grader
