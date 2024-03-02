@@ -162,7 +162,7 @@ int main(int argc, char **argv)
     if (what == "distinct") {
         int n = atoi(argv[3]);
         cout << t_max << "\n";
-        for (int k = 1; k <= t_max; k++) {
+        for (int k = 0; k < t_max; k++) {
             int u = k%n+1;
             cout << u << "\n";
             vector<int> s;
@@ -178,23 +178,25 @@ int main(int argc, char **argv)
     }
     if (what == "all1") {
         int n = atoi(argv[3]);
-        cout << n << "\n";
-        for (int k = 1; k <= n; k++) {
-            cout << k << "\n";
-            for (int i = 1; i <= k; i++) {
+        cout << t_max << "\n";
+        for (int k = 0; k < t_max; k++) {
+            int u = k%n+1;
+            cout << u << "\n";
+            for (int i = 1; i <= u; i++) {
                 cout << 1;
-                cout << " \n"[i == k];
+                cout << " \n"[i == u];
             }
         }
     }
     if (what == "alln") {
         int n = atoi(argv[3]);
-        cout << n << "\n";
-        for (int k = 1; k <= n; k++) {
-            cout << k << "\n";
-            for (int i = 1; i <= k; i++) {
-                cout << k;
-                cout << " \n"[i == k];
+        cout << t_max << "\n";
+        for (int k = 0; k < t_max; k++) {
+            int u = k%n+1;
+            cout << u << "\n";
+            for (int i = 1; i <= u; i++) {
+                cout << u;
+                cout << " \n"[i == u];
             }
         }
     }
