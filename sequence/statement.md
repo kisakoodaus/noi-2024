@@ -1,18 +1,18 @@
-Consider a game with $n$ players, numbered $1,2,\dots,n$. Each player $i$ has an integer $s_i$ between $1$ and $n$.
+Consider a game with $n$ players and $n$ chairs. The chairs will be arranged in a circle, and each player will sit on a chair. There is also a bell which will ring some number of times during the game.
 
-There are $n$ chairs arranged in a circle. Initially, each player sits on a chair. Then, a bell rings and each player $i$ moves $s_i$ steps clockwise.
+Each chair has an integer between $1$ and $n$: the number of steps the player who sits on that chair must move clockwise when the bell rings. A chair arrangement is valid if each chair will have exactly one player after the bell rings.
 
-Your task is to find an initial order for the players such that each chair has exactly one player after they move.
+Your task is to find a valid chair arrangement or state that there are no such arrangement.
 
 # Input
 
 The first line has an integer $t$: the number of tests.
 
-After this, each test consists of two lines. The first line has an integer $n$ and the second line has integers $s_1,s_2,\dots,s_n$.
+After this, each test consists of two lines. The first line has an integer $n$. The second line has integers $s_1,s_2,\dots,s_n$: the numbers in the chairs.
 
 # Output
 
-For each test, first print `YES` if there is a valid initial order and `NO` otherwise. If the answer is `YES`, also print a possible order. If there are several orders, you can print any of them.
+For each test, first print `YES` if there is a valid chair arrangement and `NO` otherwise. If the answer is `YES`, also print a possible arrangement clockwise. If there are several valid arrangements, you can print any of them.
 
 # Constraints
 
