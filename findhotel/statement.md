@@ -6,7 +6,7 @@ Your task is to determine, for each city, the minimum distance to another city t
 
 # Input
 
-The first line has three integers $n$, $m$ and $k$: the number of cities, roads and anime shops.
+The first line has three integers $n$, $m$ and $k$: the number of cities, roads and anime shops. The cities are numbered $1,2,\dots,n$.
 
 The next line contains $k$ integers: the cities that have an anime shop.
 
