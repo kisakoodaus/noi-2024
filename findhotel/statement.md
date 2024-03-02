@@ -1,18 +1,20 @@
-There are $n$ cities and $m$ roads. Each road is a two-way road and connects two cities. There are $k$ cities that have a hotel.
+There are $n$ cities and $m$ roads. Each road is a two-way road and connects two cities. It is also known that $k$ cities have an anime shop.
 
-Your task is to determine, for each city, the minimum distance to another city that has a hotel.
+If you live in a city, you of course know the local anime shop well if there is one. You would like to find nearest anime shop that is not in your city.
+
+Your task is to determine, for each city, the minimum distance to another city that has an anime shop.
 
 # Input
 
-The first line has three integers $n$, $m$ and $k$: the number of cities, roads and hotels.
+The first line has three integers $n$, $m$ and $k$: the number of cities, roads and anime shops.
 
-The next line contains $k$ integers: the cities that have a hotel.
+The next line contains $k$ integers: the cities that have an anime shop.
 
 Finally, there are $m$ lines that describe the roads. Each line has two integers $a$ and $b$: there is a road between cities $a$ and $b$.
 
 # Output
 
-Print $n$ integers: for each city, the minimum distance to another city with a hotel. If there is no such city, print $-1$ instead.
+Print $n$ integers: for each city, the minimum distance to another city with an anime shop. If there is no such city, print $-1$ instead.
 
 # Example
 
