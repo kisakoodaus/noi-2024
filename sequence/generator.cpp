@@ -42,37 +42,58 @@ void shuffle(T &arr)
 
 set<vector<int>> small;
 
-void create(int n, vector<int> v) {
+void create(int n, vector<int> v, double p = false) {
     if ((int)v.size() == n) {
+        if (p) {
+            int s = 0;
+            for (auto x : v) s += x;
+            if (s%n != 0) return;
+        }
         sort(v.begin(),v.end());
         small.insert(v);
         return;
     }
     for (int i = 1; i <= n; i++) {
+        if (v.size() && v.back() > i) continue;
         auto u = v;
         u.push_back(i);
-        create(n, u);
+        create(n, u, p);
+    }
+}
+
+void create_max(int n, vector<int> v, int e_max, double p = false) {
+    if ((int)v.size() == n) {
+        if (p) {
+            int s = 0;
+            for (auto x : v) s += x;
+            if (s%n != 0) return;
+        }
+        sort(v.begin(),v.end());
+        small.insert(v);
+        return;
+    }
+    for (int i = 1; i <= min(n,e_max); i++) {
+        if (v.size() && v.back() > i) continue;
+        auto u = v;
+        u.push_back(i);
+        create_max(n, u, e_max, p);
     }
 }
 
 int main(int argc, char **argv)
 {
-    // Check argument count
-    if (argc != 4)
-        usage();
-
-    // Parse arguments into numbers
     unsigned long long seed = stoull(argv[1]);
     r_dev.seed(seed);
     r_dev64.seed(seed);
 
     string what = argv[2];
-    int n = atoi(argv[3]);
 
     int t_max = 1000;
 
     if (what == "small") {
-        for (int i = 1; i <= n; i++) {
+        int a = atoi(argv[3]);
+        int b = atoi(argv[4]);
+        for (int i = a; i <= b; i++) {
             create(i, {});
         }
         cout << small.size() << "\n";
@@ -86,7 +107,25 @@ int main(int argc, char **argv)
             }
         }
     }
+    if (what == "small-possible") {
+        int a = atoi(argv[3]);
+        int b = atoi(argv[4]);
+        for (int i = a; i <= b; i++) {
+            create(i, {}, true);
+        }
+        cout << small.size() << "\n";
+        for (auto s : small) {
+            random_shuffle(s.begin(),s.end());
+            int u = s.size();
+            cout << u << "\n";
+            for (int i = 0; i < u; i++) {
+                cout << s[i];
+                cout << " \n"[i == u-1];
+            }
+        }
+    }
     if (what == "random-possible") {
+        int n = atoi(argv[3]);
         cout << t_max << "\n";
         for (int k = 1; k <= t_max; k++) {
             cout << n << "\n";
@@ -105,6 +144,7 @@ int main(int argc, char **argv)
         }
     }
     if (what == "random-any") {
+        int n = atoi(argv[3]);
         cout << t_max << "\n";
         for (int k = 1; k <= t_max; k++) {
             cout << n << "\n";
@@ -120,43 +160,24 @@ int main(int argc, char **argv)
         }
     }
     if (what == "distinct") {
-        cout << n << "\n";
-        for (int k = 1; k <= n; k++) {
-            cout << k << "\n";
+        int n = atoi(argv[3]);
+        cout << t_max << "\n";
+        for (int k = 1; k <= t_max; k++) {
+            int u = k%n+1;
+            cout << u << "\n";
             vector<int> s;
-            for (int i = 1; i <= k; i++) {
+            for (int i = 1; i <= u; i++) {
                 s.push_back(i);
             }
             random_shuffle(s.begin(), s.end());
-            for (int i = 0; i < k; i++) {
+            for (int i = 0; i < u; i++) {
                 cout << s[i];
-                cout << " \n"[i == k-1];
+                cout << " \n"[i == u-1];
             }
         }
     }
-    if (what == "max5") {
-        cout << t_max << "\n";
-        for (int k = 1; k <= t_max; k++) {
-            cout << n << "\n";
-            vector<int> s;
-            for (int i = 1; i <= n; i++) {
-                s.push_back(3);
-            }
-            for (int z = 1; z <= 1e5; z++) {
-                int a = rnd(0,n-1);
-                int b = rnd(0,n-1);
-                if (a != b && s[a]-1 >= 1 && s[b]+1 <= 5) {
-                    s[a]--;
-                    s[b]++;
-                }
-            }
-            for (int i = 0; i < n; i++) {
-                cout << s[i];
-                cout << " \n"[i == n-1];
-            }
-        }
-    }
-    if (what == "minimum") {
+    if (what == "all1") {
+        int n = atoi(argv[3]);
         cout << n << "\n";
         for (int k = 1; k <= n; k++) {
             cout << k << "\n";
@@ -166,13 +187,98 @@ int main(int argc, char **argv)
             }
         }
     }
-    if (what == "maximum") {
+    if (what == "alln") {
+        int n = atoi(argv[3]);
         cout << n << "\n";
         for (int k = 1; k <= n; k++) {
             cout << k << "\n";
             for (int i = 1; i <= k; i++) {
                 cout << k;
                 cout << " \n"[i == k];
+            }
+        }
+    }
+    if (what == "max-any") {
+        int e_max = atoi(argv[3]);
+        int n = atoi(argv[4]);
+        cout << t_max << "\n";
+        for (int k = 1; k <= t_max; k++) {
+            cout << n << "\n";
+            vector<int> s;
+            for (int i = 1; i <= n; i++) {
+                int x = rnd(1,e_max);
+                s.push_back(x);
+            }
+            for (int i = 0; i < n; i++) {
+                cout << s[i];
+                cout << " \n"[i == n-1];
+            }
+        }
+    }
+    if (what == "max-possible") {
+        int e_max = atoi(argv[3]);
+        int n = atoi(argv[4]);
+        cout << t_max << "\n";
+        for (int k = 1; k <= t_max; k++) {
+            cout << n << "\n";
+            vector<int> s;
+            int w = 0;
+            for (int i = 1; i <= n; i++) {
+                int x = rnd(1,e_max);
+                s.push_back(x);
+                w += x;
+            }
+            int add = coin() ? 1 : -1;
+            if (e_max != 2) {
+                if (w < 2*n) add = 1;
+                if (w > (e_max-1)*n) add = -1;
+            }
+            while (w%n != 0) {
+                int p = rnd(0,n-1);
+                if (s[p]+add >= 1 && s[p]+add <= e_max) {
+                    s[p] += add;
+                    w += add;
+                }
+            }
+            for (int i = 0; i < n; i++) {
+                cout << s[i];
+                cout << " \n"[i == n-1];
+            }
+        }
+    }
+    if (what == "max-small") {
+        int e_max = atoi(argv[3]);
+        int a = atoi(argv[4]);
+        int b = atoi(argv[5]);
+        for (int i = a; i <= b; i++) {
+            create_max(i, {}, e_max);
+        }
+        cout << small.size() << "\n";
+        for (auto s : small) {
+            random_shuffle(s.begin(),s.end());
+            int u = s.size();
+            cout << u << "\n";
+            for (int i = 0; i < u; i++) {
+                cout << s[i];
+                cout << " \n"[i == u-1];
+            }
+        }
+    }
+    if (what == "max-small-possible") {
+        int e_max = atoi(argv[3]);
+        int a = atoi(argv[4]);
+        int b = atoi(argv[5]);
+        for (int i = a; i <= b; i++) {
+            create_max(i, {}, e_max, true);
+        }
+        cout << small.size() << "\n";
+        for (auto s : small) {
+            random_shuffle(s.begin(),s.end());
+            int u = s.size();
+            cout << u << "\n";
+            for (int i = 0; i < u; i++) {
+                cout << s[i];
+                cout << " \n"[i == u-1];
             }
         }
     }

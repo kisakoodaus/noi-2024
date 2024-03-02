@@ -1,11 +1,28 @@
-1 small 6
-2 random-any 8
-3 random-possible 8
-4 random-any 16
-5 random-possible 16
-6 distinct 100
-7 max5 100
-8 random-any 100
-9 random-possible 100
-10 minimum 100
-11 maximum 100
+1 small 1 6
+2 small-possible 7 7
+3 small-possible 8 8
+4 random-any 8
+5 random-possible 8
+6 random-any 16
+7 random-possible 16
+8 distinct 100
+9 max-small 2 1 43
+10 max-small-possible 2 1 100
+11 max-any 2 100
+12 max-possible 2 100
+13 max-small 3 1 16
+14 max-small-possible 3 1 57
+15 max-any 3 100
+16 max-possible 3 100
+17 max-small 4 1 10
+18 max-small-possible 4 1 22
+19 max-any 4 100
+20 max-possible 4 100
+21 max-small 5 1 7
+22 max-small-possible 5 1 13
+23 max-any 5 100
+24 max-possible 5 100
+25 random-any 100
+26 random-possible 100
+27 all1 100
+28 alln 100
