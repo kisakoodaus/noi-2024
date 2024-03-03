@@ -2,6 +2,7 @@
 102 5 3 16 rand
 101 4 4 16 bfs
 103 3 5 16 bfs
+111 4 4 5 rand # found with brutetester: max is not at edge
 200 10 20000 5 rand
 201 10 20000 5 bin 0.05
 202 10 20000 5 bin 0.35
