@@ -1,8 +1,8 @@
-There are $n$ cities and $m$ roads. Each road is a two-way road and connects two cities. It is also known that $k$ cities have an anime shop.
+There are $n$ cities and $m$ roads. Each road is bidirectional and connects two cities. It is also known that $k$ cities have an anime shop.
 
-If you live in a city, you of course know the local anime shop well if there is one. You would like to find nearest anime shop that is not in your city.
+If you live in a city, you of course know the local anime shop well if there is one. You would like to find the nearest anime shop that is not in your city.
 
-Your task is to determine, for each city, the minimum distance to another city that has an anime shop.
+For each city, determine the minimum distance to another city that has an anime shop.
 
 # Input
 
