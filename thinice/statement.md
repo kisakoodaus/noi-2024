@@ -31,10 +31,10 @@ Print the largest number of coins that Uolevi can gather.
 
 Input:
 ```
-3 3
-1 2 3
-1 5 4
-7 3 2
+3 4
+1 4 2 1
+3 5 1 3
+5 1 4 5
 ```
 
 Output:
