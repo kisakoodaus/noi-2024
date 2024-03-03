@@ -1,15 +1,13 @@
 Uolevi is at a frozen lake in the shape of an $n \times m$ grid, with one
 coin on each square.
-The durability of the ice on each square is known, and it corresponds
-to some amount of coins.
+Each square has a durability: the maximum number of coins the ice on the square can withstand.
 
 In one step, Uolevi can move one square up, down, left or right, but not
 outside the lake.
 If there is a coin on the square Uolevi is currently in,
 he can pick it up.
 
-The ice on the square Uolevi moves to must always be able to withstand
-the total number of coins on top of it. This includes the
+When Uolevi moves to a square, the number of coins on the square must never exceed the durability of the square. This includes the
 coins Uolevi is carrying, and the one on the ice if it has not yet been
 picked up.
 Uolevi's own weight is negligible.
