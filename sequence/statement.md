@@ -2,13 +2,13 @@ Consider a game with $n$ players and $n$ chairs. The chairs will be arranged in 
 
 Each chair has an integer between $1$ and $n$: the number of steps the player who sits on that chair must move clockwise when the bell rings. A chair arrangement is valid if each chair will have exactly one player after the bell rings.
 
-Your task is to find a valid chair arrangement or state that there are no such arrangement.
+Your task is to find a valid chair arrangement or state that there is no such arrangement.
 
 # Input
 
 The first line has an integer $t$: the number of tests.
 
-After this, each test consists of two lines. The first line has an integer $n$. The second line has integers $s_1,s_2,\dots,s_n$: the numbers in the chairs.
+After this, each test consists of two lines. The first line has an integer $n$. The second line has integers $s_1,s_2,\dots,s_n$: the numbers on the chairs.
 
 # Output
 
