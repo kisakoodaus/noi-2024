@@ -89,19 +89,34 @@ int main(int argc, char **argv)
         }
     }
     if (s == "star") {
-        if (n%2 == 0) n--;
-        int m = n-1;
-        int k = n/2;
-        cout << n << " " << m << " " << k << "\n";
+        int h = atoi(argv[4]);
+        vector<int> q;
+        for (int i = 0; i < h; i++) q.push_back(1);
 
-        for (int i = 1; i <= k; i++) {
-            cout << 2*i+1;
-            cout << " \n"[i == k];
+        set<int> z;
+        for (int i = 1; i <= n; i++) z.insert(i);
+
+        vector<pair<int,int>> e;
+        for (int i = 2; i <= n; i++) {
+            e.push_back({q[i-2], i});
+            q.push_back(i);
+            z.erase(q[i-2]);
         }
 
-        for (int i = 2; i <= n; i++) {
-            if (i%2 == 0) cout << 1 << " " << i << "\n";
-            else cout << i-1 << " " << i << "\n";
+        int m = e.size();
+        int k = z.size();
+        cout << n << " " << m << " " << k << "\n";
+
+        bool f = false;
+        for (auto x : z) {
+            if (f) cout << " ";
+            cout << x;
+            f = true;
+        }
+        cout << "\n";
+
+        for (auto x : e) {
+            cout << x.first << " " << x.second << "\n";
         }
     }
 }
