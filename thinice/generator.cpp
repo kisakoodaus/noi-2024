@@ -8,7 +8,7 @@ using namespace std;
 
 [[noreturn]] void usage()
 {
-    cerr << "Usage: ./generator seed n m dmax type" << endl;
+    cerr << "Usage: ./generator seed n m dmax type [params..]" << endl;
     exit(1);
 }
 
@@ -38,6 +38,11 @@ template <typename T>
 void shuffle(T &arr)
 {
     shuffle(arr.begin(), arr.end(), r_dev);
+}
+
+int rnd_bin(int a, int b, double par=0.5) {
+  binomial_distribution<> dist(b-a, par);
+  return a+dist(r_dev);
 }
 
 void add_noise(vector<vector<int>> &d, int maxd, double par) {
@@ -100,6 +105,68 @@ struct Solver {
   vector<vector<int>> chokepoints();
 };
 
+struct Rect {
+  int x, y, h, w;
+  int area() {
+    return h * w;
+  }
+};
+
+int dac_target;
+void divide_and_conquer(vector<vector<int>> &d, Rect rect, int mi, int ma, int target, int ot, bool needed) {
+  int n = d.size(), m = d[0].size();
+  auto atedge = [=](Rect r) {
+    return r.x == 0 || r.y == 0 || r.x+r.h == n || r.y+r.w == m;
+  };
+  auto [x, y, h, w] = rect;
+  if (h == 0 || w == 0) return;
+  assert(mi <= target && target <= ma);
+  assert(ot <= mi);
+  assert(!(needed && ot + rect.area() < target));
+  int mid;
+  Rect l, r;
+  int vert = w > h || (w == h && coin());
+  if (vert) {
+    mid = y+w/2 - (w % 2 == 0 && coin());
+    l = {x, y, h, mid-y}, r = {x, mid+1, h, y+w-mid-1};
+  } else {
+    mid = x+h/2 - (h % 2 == 0 && coin());
+    l = {x, y, mid-x, w}, r = {mid+1, y, x+h-mid-1, w};
+  }
+  int l_target, r_target, split;
+  bool l_needed = false;
+  if (atedge(rect) && ot + rect.area() >= dac_target) {
+    l_needed = needed;
+    if (!atedge(l) || (atedge(r) && coin())) swap(l, r);
+    l_target = target;
+    split = rnd_bin(max(mi, target-l.area()), target, 0.2);
+    if (atedge(r)) {
+      int ctrg = max(dac_target-3, target-rnd(0, 3));
+      r_target = max(ctrg, split);
+    } else {
+      r_target = rnd(split, ma);
+    }
+  } else {
+    if (coin()) split = rnd_bin(mi, ma, 0.5);
+    else split = mi;
+    l_target = ma;
+    r_target = ma;
+  }
+  if (vert) {
+    for (int i = x; i < x+h; ++i) {
+      d[i][mid] = rnd(mi, split);
+    }
+    d[rnd(x, x+h-1)][mid] = split;
+  } else {
+    for (int j = y; j < y+w; ++j) {
+      d[mid][j] = rnd(mi, split);
+    }
+    d[mid][rnd(y, y+w-1)] = split;
+  }
+  divide_and_conquer(d, l, split, ma, l_target, min(ot + rect.area()-l.area(), split), l_needed);
+  divide_and_conquer(d, r, split, ma, r_target, min(ot + rect.area()-r.area(), split), false);
+}
+
 int main(int argc, char **argv)
 {
   // Check argument count
@@ -127,6 +194,12 @@ int main(int argc, char **argv)
     for (int i = 0; i < n; ++i) {
       for (int j = 0; j < m; ++j) {
         d[i][j] = rnd(1, maxd);
+      }
+    }
+  } else if (tp == "equal") {
+    for (int i = 0; i < n; ++i) {
+      for (int j = 0; j < m; ++j) {
+        d[i][j] = maxd;
       }
     }
   } else if (tp == "bin") {
@@ -194,6 +267,12 @@ int main(int argc, char **argv)
     if (single_sol) {
       add_bfs(d, edges[rnd(0, edges.size()-1)], cap+1);
     }
+  } else if (tp == "divide-conquer") {
+    int cap;
+    if (argc >= 7) cap = atoi(argv[6]);
+    else cap = rnd(maxd*4/5, maxd);
+    dac_target = cap;
+    divide_and_conquer(d, {0, 0, n, m}, 1, maxd, cap, 0, 1);
   } else {
     throw;
   }
