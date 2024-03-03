@@ -1,19 +1,21 @@
-Uolevi is at a frozen lake in the shape of an $n \times m$ grid, with one gold
+Uolevi is at a frozen lake in the shape of an $n \times m$ grid, with one
 coin on each square.
-The durability of the ice on each square is known and is expressed as the
-number of gold coins the ice can withstand.
+The durability of the ice on each square is known, and it corresponds
+to some amount of coins.
 
 In one step, Uolevi can move one square up, down, left or right, but not
 outside the lake.
-The ice on the square Uolevi moves to must always be able to withstand
-the total number of gold coins on top of it. This includes the gold
-coins Uolevi is carrying, and the one on the ice if it has not yet been
-picked up.
-If there is a gold coin on the square Uolevi is currently in,
+If there is a coin on the square Uolevi is currently in,
 he can pick it up.
 
+The ice on the square Uolevi moves to must always be able to withstand
+the total number of coins on top of it. This includes the
+coins Uolevi is carrying, and the one on the ice if it has not yet been
+picked up.
+Uolevi's own weight is negligible.
+
 Uolevi wants to start and end a trip on squares that are at the edges of the
-lake. What is the largest number of gold coins he can gather during the trip?
+lake. What is the largest number of coins he can gather during the trip?
 
 # Input
 
@@ -25,7 +27,7 @@ on each square.
 
 # Output
 
-Print the largest number of gold coins that Uolevi can gather.
+Print the largest number of coins that Uolevi can gather.
 
 # Example
 
