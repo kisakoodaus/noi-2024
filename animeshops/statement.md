@@ -44,7 +44,7 @@ Output:
 
 # Subtask 2 ([score=2] points)
 
-- $1 \le ke \le n \le 10^5$
+- $1 \le k \le n \le 10^5$
 - $m=n-1$
 - Each road is between cities $i$ and $i+1$ for $i=1,2,\dots,n-1$
 
