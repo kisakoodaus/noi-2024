@@ -119,4 +119,11 @@ int main(int argc, char **argv)
             cout << x.first << " " << x.second << "\n";
         }
     }
+    if (s == "no-edges") {
+        cout << n << " " << 0 << " " << n << "\n";
+        for (int i = 1; i <= n; i++) {
+            cout << i;
+            cout << " \n"[i == n];
+        }
+    }
 }
