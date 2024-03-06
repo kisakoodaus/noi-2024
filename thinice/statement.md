@@ -32,15 +32,31 @@ Print the largest number of coins that Uolevi can gather.
 Input:
 ```
 3 4
-1 4 2 1
-3 5 1 3
-5 1 4 5
+3 4 2 1
+1 5 1 2
+5 1 3 5
 ```
 
 Output:
 ```
 4
 ```
+
+*Explanation*:
+
+Uolevi can gather $4$ coins during the trip by moving as follows:
+1. Start at the top right square (durability $1$) and pick up the coin.
+2. Move one step to the left (durability $2$) and pick up the coin. Uolevi is
+   now carrying $2$ coins.
+3. Move two steps to the left and pick up the coin there. Uolevi is now at the
+   top left square (durability $3$) and he is carrying $3$ coins.
+4. Move one step to the right (durability $4$) and pick up the coin. Uolevi can
+   end his trip here with $4$ coins collected, since the square is at the top
+   edge.
+
+It is also possible to collect $5$ coins by moving down one more step. However,
+there is no way to get back to the edges of the lake after this.
+
 
 # Subtask 1 ([score=1] points)
 
