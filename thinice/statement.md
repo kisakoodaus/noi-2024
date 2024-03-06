@@ -59,13 +59,13 @@ Output:
 
 # Subtask 4 ([score=4] points)
 
-- $1 \le nm \le 1000$
-- $1 \le d \le 1000$
+- $n = 1$, $1 \le m \le 2 \cdot 10^5$
+- $1 \le d \le 2 \cdot 10^5$
 
 # Subtask 5 ([score=5] points)
 
-- $n = 1$, $1 \le m \le 2 \cdot 10^5$
-- $1 \le d \le 2 \cdot 10^5$
+- $1 \le nm \le 1000$
+- $1 \le d \le 1000$
 
 # Subtask 6 ([score=6] points)
 

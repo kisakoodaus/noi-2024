@@ -18,8 +18,8 @@ int main() {
   if (nm <= 16 && maxd <= 16) g.push_back(1);
   if (maxd <= 5) g.push_back(2);
   if (n == 1 && m <= 100 && maxd <= 100) g.push_back(3);
-  if (nm <= 1000 && maxd <= 1000) g.push_back(4);
-  if (n == 1) g.push_back(5);
+  if (n == 1) g.push_back(4);
+  if (nm <= 1000 && maxd <= 1000) g.push_back(5);
   g.push_back(6);
   end_groups(g);
 }
