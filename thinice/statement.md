@@ -45,11 +45,11 @@ Output:
 *Explanation*:
 
 Uolevi can gather $5$ coins during the trip by starting at the middle right
-square and making the following moves:
+square and making the following sequence of moves:
 
 pick coin $\rightarrow$ move left $\rightarrow$ pick coin $\rightarrow$ move up
 $\rightarrow$ move right $\rightarrow$ pick coin $\rightarrow$ move left
-$\rightarrow$ pick coin $\right arrow$ move left $rightarrow$ pick coin
+$\rightarrow$ pick coin $\rightarrow$ move left $\rightarrow$ pick coin
 
 It is also possible to collect $6$ coins by moving down one more step. However,
 there is no way to get back to the edges of the lake after this.
