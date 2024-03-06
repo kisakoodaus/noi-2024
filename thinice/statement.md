@@ -12,8 +12,8 @@ coins Uolevi is carrying, and the one on the ice if it has not yet been
 picked up.
 Uolevi's own weight is negligible.
 
-Uolevi wants to start and end a trip on squares that are at the edges of the
-lake. What is the largest number of coins he can gather during the trip?
+Uolevi wants to start and end a trip on some edge squares of the lake. What is
+the largest number of coins he can gather during the trip?
 
 # Input
 
@@ -33,7 +33,7 @@ Input:
 ```
 3 4
 1 1 1 1
-1 2 6 1
+1 3 6 1
 3 4 5 1
 ```
 
@@ -51,8 +51,8 @@ $\rightarrow$ pick coin $\rightarrow$ down
 $\rightarrow$ left $\rightarrow$ pick coin $\rightarrow$ right
 $\rightarrow$ pick coin $\rightarrow$ right $\rightarrow$ pick coin
 
-Collecting $6$ coins is also possible by moving up one more step. However,
-there is no way to get back to the edges of the lake after this.
+Note that Uolevi can't collect six coins because he can't get back to an edge
+square after this.
 
 # Subtask 1 ([score=1] points)
 
