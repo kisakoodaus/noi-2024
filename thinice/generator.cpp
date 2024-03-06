@@ -221,6 +221,20 @@ int main(int argc, char **argv)
       add_bfs(d, st, rnd(maxd/2, cap));
     }
     add_noise(d, maxd, 0.02);
+  } else if (tp == "bfs-all") {
+    auto st = edges[rnd(0, edges.size()-1)];
+    add_bfs(d, st, n*m-rnd(1, 5));
+    add_noise(d, maxd, 0.30/n/m);
+  } else if (tp == "rand-all") {
+    vector<int> vals;
+    for (int i = 1; i <= n*m; ++i) vals.push_back(i);
+    shuffle(vals);
+    for (int i = 0; i < n; ++i) {
+      for (int j = 0; j < m; ++j) {
+        d[i][j] = vals.back();
+        vals.pop_back();
+      }
+    }
   } else if (tp == "choke") {
     assert(argc >= 7);
     int cap = atoi(argv[6]);
