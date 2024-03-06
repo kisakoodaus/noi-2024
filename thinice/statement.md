@@ -32,9 +32,9 @@ Print the largest number of coins that Uolevi can gather.
 Input:
 ```
 3 4
-1 5 4 3
-1 6 2 1
 1 1 1 1
+1 2 6 1
+3 4 5 1
 ```
 
 Output:
@@ -44,14 +44,14 @@ Output:
 
 *Explanation*:
 
-Uolevi can gather $5$ coins during the trip by starting at the middle right
-square and making the following sequence of moves:
+Uolevi can start at the top left square and move as follows:
 
-pick coin $\rightarrow$ move left $\rightarrow$ pick coin $\rightarrow$ move up
-$\rightarrow$ move right $\rightarrow$ pick coin $\rightarrow$ move left
-$\rightarrow$ pick coin $\rightarrow$ move left $\rightarrow$ pick coin
+down $\rightarrow$ pick coin $\rightarrow$ right
+$\rightarrow$ pick coin $\rightarrow$ down
+$\rightarrow$ left $\rightarrow$ pick coin $\rightarrow$ right
+$\rightarrow$ pick coin $\rightarrow$ right $\rightarrow$ pick coin
 
-It is also possible to collect $6$ coins by moving down one more step. However,
+Collecting $6$ coins is also possible by moving up one more step. However,
 there is no way to get back to the edges of the lake after this.
 
 # Subtask 1 ([score=1] points)
