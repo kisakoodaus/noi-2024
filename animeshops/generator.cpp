@@ -126,4 +126,12 @@ int main(int argc, char **argv)
             cout << " \n"[i == n];
         }
     }
+    if (s == "ring") {
+        cout << n << " " << n << " " << 2 << "\n";
+        cout << 1 << " " << n/2+1 << "\n";
+        for (int i = 1; i <= n-1; i++) {
+            cout << i << " " << i+1 << "\n";
+        }
+        cout << 1 << " " << n << "\n";
+    }
 }
