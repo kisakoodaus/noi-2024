@@ -51,7 +51,7 @@ $\rightarrow$ pick coin $\rightarrow$ down
 $\rightarrow$ left $\rightarrow$ pick coin $\rightarrow$ right
 $\rightarrow$ pick coin $\rightarrow$ right $\rightarrow$ pick coin
 
-Note that Uolevi can't collect six coins because he can't get back to an edge
+Note that Uolevi cannot collect six coins because he would not be able to get back to an edge
 square after this.
 
 # Subtask 1 ([score=1] points)
