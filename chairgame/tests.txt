@@ -26,3 +26,5 @@
 26 random-possible 100
 27 all1 100
 28 alln 100
+29 random-possible 100
+30 random-possible 100
